@@ -9,6 +9,7 @@ const signupRoute = require("./routes/signup.js");
 const bodyParser = require("body-parser");
 const createAdminAccount = require("./scripts/admin.js");
 const loginRoute = require("./routes/login.js");
+const userRoute = require("./routes/user.js");
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/auth-auth")
@@ -27,6 +28,7 @@ createAdminAccount();
 
 app.use("/user", signupRoute);
 app.use("/auth", loginRoute );
+app.use("/api" , userRoute);
 
 
 app.listen(8000, () => {
